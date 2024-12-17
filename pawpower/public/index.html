@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Adoption - PawPower</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to PawPower!</h1>
+        <p>Find your perfect furry friend</p>
+    </header>
+
+    <main>
+        <!-- Search and Filter Section -->
+        <section>
+            <h2>Filter and Search Cats</h2>
+            <input type="text" id="search" placeholder="Search by name or breed" />
+            <select id="filter-breed">
+                <option value="">All Breeds</option>
+                <option value="Tabby">Tabby</option>
+                <option value="Siamese">Siamese</option>
+                <option value="Persian">Persian</option>
+            </select>
+            <select id="filter-age">
+                <option value="">All Ages</option>
+                <option value="young">Less than 2 years</option>
+                <option value="adult">2-5 years</option>
+                <option value="senior">6+ years</option>
+            </select>
+            <button onclick="fetchCats()">Apply Filters</button>
+        </section>
+
+        <!-- Cat Listing Section -->
+        <section>
+            <h2>Adoptable Cats</h2>
+            <div id="cat-list"></div>
+        </section>
+
+        <!-- Adoption Form -->
+        <section>
+            <h2>Submit an Adoption Application</h2>
+            <form id="adoption-form">
+                <label>Name: <input type="text" id="applicant-name" required /></label><br />
+                <label>Email: <input type="email" id="applicant-email" required /></label><br />
+                <label>Selected Cat: <input type="text" id="selected-cat" readonly /></label><br />
+                <button type="submit">Submit Application</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Contact us at info@pawpower.com</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
