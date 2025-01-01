@@ -1,46 +1,424 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    color: #333;
+    background-color: #ffffff;
 }
 
-header, footer {
-    background-color: #ffcc00;
+header {
+    background-color: #fbf9f9;
     text-align: center;
-    padding: 10px;
+    padding: 20px 10px;
 }
 
-h2 {
-    margin-top: 20px;
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #333;
 }
 
-#cat-list {
+header p {
+    font-size: 1.2rem;
+}
+
+/* Hero Section */
+.hero-image {
+    width: 100%; /* Full width of the container */
+    max-height: 400px; /* Limit the maximum height */
+    object-fit: contain; /* Show the full image without cropping */
+    border-radius: 10px; /* Optional: Rounded corners */
+    display: block; /* Ensure proper alignment */
+    margin: 0 auto; /* Center the image horizontally */
+}
+
+/* Search and Filter Section */
+.search-filter {
+    text-align: center;
+    padding: 20px;
+}
+
+.filter-container {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
-.cat-card {
-    border: 1px solid #ddd;
+input, select, button {
     padding: 10px;
-    text-align: center;
-    width: 200px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    border: 1px solid #651414;
+    border-radius: 5px;
 }
 
-button {
-    margin: 5px;
-    padding: 5px 10px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
+button.btn {
+    background-color: #1b83bb;
+    color: white;
     cursor: pointer;
 }
 
-button:hover {
+button.btn:hover {
     background-color: #0056b3;
 }
+
+/* Cat Listing Section */
+.cat-list-section {
+    text-align: center;
+    padding: 20px;
+}
+
+.cat-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.cat-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    width: 220px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.cat-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.cat-card h3 {
+    margin: 10px 0 5px;
+}
+
+.cat-card p {
+    font-size: 0.9rem;
+    color: #514e4e;
+}
+
+button {
+    margin-top: 5px;
+}
+
+/* Adoption Form Section */
+.adoption-form-section {
+    padding: 20px;
+    background: #ffefc1;
+    text-align: center;
+    border-top: 2px solid #ccc; /* Optional: Adds a border to separate the section */
+}
+
+.adoption-form {
+    display: flex;
+    flex-direction: column; /* Arrange inputs in a vertical column */
+    align-items: center;
+    gap: 15px; /* Add space between the inputs */
+    max-width: 600px; /* Limit the width of the form */
+    margin: 0 auto; /* Center the form on the page */
+}
+
+/* Input Fields Styling */
+.adoption-form input {
+    width: 100%; /* Make inputs span full width */
+    max-width: 500px; /* Limit input width for larger screens */
+    padding: 10px; /* Add padding for better usability */
+    font-size: 1rem; /* Increase font size for readability */
+    border: 1px solid #ccc; /* Add a light border */
+    border-radius: 5px; /* Round the corners */
+}
+
+/* Submit Button Styling */
+.adoption-form button.btn-submit {
+    width: 100%; /* Make the button span the full width */
+    max-width: 500px; /* Limit the button width for larger screens */
+    padding: 12px; /* Add padding for better usability */
+    font-size: 1rem; /* Increase font size */
+    border: none;
+    border-radius: 8px;
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* Submit Button Hover Effect */
+.adoption-form button.btn-submit:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+/* Highlight for the selected cat */
+.selected {
+    border: 2px solid #4CAF50; /* Green border */
+    background-color: #f9fff9; /* Light green background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for emphasis */
+    transform: scale(1.02); /* Slight zoom effect */
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+/* Ensure buttons are displayed in a row */
+.button-container {
+    display: flex; /* Align buttons in a row */
+    justify-content: space-between; /* Ensure buttons are evenly spaced */
+    gap: 10px; /* Add space between buttons */
+    width: 100%; /* Ensure container spans card width */
+    margin-top: auto; /* Push buttons to the bottom */
+    padding: 0; /* Reset padding to prevent overlap */
+    box-sizing: border-box; /* Prevent width overflow */
+}
+/* Buttons styling */
+.cat-card button {
+    flex: 1; /* Equal button width */
+    padding: 8px 0; /* Top and bottom padding only */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #ddd; /* Neutral button color */
+    color: #333; /* Neutral text color */
+    font-size: 0.9rem; /* Keep the font size readable */
+    font-weight: bold; /* Slightly bold for emphasis */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+    text-align: center; /* Center-align text */
+    box-sizing: border-box; /* Ensure buttons fit within the container */
+    max-width: 100%; /* Prevent buttons from exceeding the card's width */
+}
+
+/* Hover effect */
+.cat-card button:hover {
+    background-color: #ccc; /* Slightly darker background on hover */
+    color: #222; /* Slightly darker text on hover */
+    transform: scale(1.03); /* Slight zoom effect on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Ensure consistent card height */
+.cat-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Spread content evenly */
+    align-items: center;
+    height: 400px; /* Fixed height for consistency */
+    padding: 10px; /* Add padding inside the card */
+    box-sizing: border-box; /* Include padding in height and width calculation */
+    overflow: hidden; /* Prevent content overflow */
+    width: 220px; /* Ensure card width is consistent */
+}
+
+/* Ensure images are consistent */
+.cat-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover; /* Ensure images are cropped proportionally */
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Submit Application Button Styling */
+button.btn-submit {
+    padding: 12px 20px; /* Add generous padding */
+    border: none; /* Remove default borders */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #28a745; /* A nice green shade */
+    color: white; /* White text */
+    font-size: 1rem; /* Increase font size */
+    font-weight: bold; /* Make the text stand out */
+    cursor: pointer; /* Pointer cursor on hover */
+    text-transform: uppercase; /* Capitalize text */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for depth */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover effect for Submit Button */
+button.btn-submit:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Enhance the shadow on hover */
+}
+
+/* Disabled State (optional) */
+button.btn-submit:disabled {
+    background-color: #ccc; /* Gray out the button */
+    color: #666; /* Dim the text color */
+    cursor: not-allowed; /* Show not-allowed cursor */
+    box-shadow: none; /* Remove shadow */
+}
+
+button.btn {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.btn:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; /* Ensure it appears above everything */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto; /* Center vertically and horizontally */
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px; /* Limit modal size on large screens */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+}
+
+.modal h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: black;
+}
+
+
+
+/*#############################
+
+
+
+/* Menu Bar Styling */
+.menu-bar {
+    background-color: #1fa5d1;
+    text-align: center; /* Center-align parent items */
+    padding: 10px 0;
+    margin: 0;
+    position: relative; /* Allow dropdowns to position correctly */
+    z-index: 10; /* Ensure menu bar is on top */
+}
+
+/* Reset List Styles and Align Horizontally */
+.menu-bar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center; /* Center align the entire list */
+}
+
+/* Parent Menu Items */
+.menu-bar ul li {
+    display: inline-block; /* Align items horizontally */
+    position: relative; /* Enable dropdown to position relative to parent */
+    margin: 0 10px; /* Add spacing between menu items */
+}
+
+/* Parent Links */
+.menu-bar ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    display: inline-block; /* Ensure link behaves like a button */
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+/* Hover Effect for Parent Links */
+.menu-bar ul li a:hover {
+    background-color: #167da0;
+}
+
+/* Dropdown Menu */
+.dropdown-content {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 100%; /* Position dropdown below the parent */
+    left: 0; /* Align dropdown with parent menu item */
+    background-color: #59aec7;
+    min-width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 5px;
+    overflow: hidden; /* Prevent content overflow */
+    padding: 0; /* Remove extra padding */
+}
+
+/* Dropdown Items */
+.dropdown-content li {
+    padding: 0;
+}
+
+.dropdown-content li a {
+    color: white;
+    padding: 10px 20px;
+    display: block;
+    text-align: left;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover Effect for Dropdown Items */
+.dropdown-content li a:hover {
+    background-color: #16a085;
+}
+
+/* Show Dropdown on Hover */
+.dropdown:hover > .dropdown-content {
+    display: block; /* Show dropdown when hovering over parent */
+}
+
+/* Spacing Between Menu Bar and Banner */
+.hero {
+    margin-top: 20px; /* Add spacing between menu and hero banner */
+}
+
+/* Keep Hero Banner Behind Dropdown */
+.hero-image {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* this is for the tips 

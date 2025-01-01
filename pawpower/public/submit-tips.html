@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your Own Cat Care Tips</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Add some custom styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #3a8dab;
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        form select, form textarea, form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        form button {
+            background-color: #3a8dab;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        form button:hover {
+            background-color: #2f6e87;
+        }
+
+        footer {
+            background-color: #3a8dab;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Submit Your Own Cat Care Tips</h1>
+    </header>
+
+    <form id="tips-form">
+        <label for="breed">Select Cat Breed:</label>
+        <select id="breed">
+            <option value="">Select Breed</option>
+            <option value="Maine Coon">Maine Coon</option>
+            <option value="British Shorthair">British Shorthair</option>
+            <option value="Bengal">Bengal</option>
+            <option value="Persian">Persian</option>
+            <option value="Siberian">Siberian</option>
+            <option value="Ragdoll">Ragdoll</option>
+        </select>
+
+        <label for="tip">Your Tips (100 words max):</label>
+        <textarea id="tip" maxlength="100" placeholder="Write your tips here..."></textarea>
+
+        <button type="submit">Submit Tips</button>
+    </form>
+
+    <footer>
+        &copy; 2024 PawPower.
+    </footer>
+
+    <!-- Include the submit-tips.js script -->
+    <script src="submit-tips.js"></script>
+</body>
+</html>
