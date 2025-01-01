@@ -421,4 +421,219 @@ button.btn:hover {
 }
 
 
-/* this is for the tips 
+
+
+/* Donation Form Container */
+.donation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+/* Card Styling */
+.donation-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+
+
+
+
+
+/* Donation Progress Page Styles */
+
+
+/* Progress Container */
+.progress-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+/* Card Styling */
+.progress-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Select Dropdown */
+.progress-select {
+    margin: 15px 0;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #e9f7ef; /* Light green background */
+    color: #333;
+}
+
+.progress-select:focus {
+    border-color: #28a745;
+    outline: none;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+/* Progress Data */
+.progress-data {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #d4edda; /* Light green for progress display */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.progress-data p {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #155724; /* Dark green text */
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .progress-card {
+        padding: 20px;
+    }
+}
+
+
+
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+/* Donation Container */
+.donation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    margin: 0 auto;
+}
+
+/* Donation Card */
+.donation-card {
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 500px;
+    padding: 20px 30px;
+    text-align: center;
+    border: 2px solid #4CAF50;
+}
+
+.colorful-card {
+    background: linear-gradient(135deg, #e3ffe7, #d9e7ff);
+}
+
+/* Form Styling */
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #4CAF50;
+    text-align: left;
+}
+
+form input, form select, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form input:focus, form select:focus, form textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/* Donate Button */
+.btn-donate {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.btn-donate:hover {
+    background-color: #45a049;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(76, 175, 80, 0.3);
+}
+
+
+
+/* Transparency Reports Styling */
+.reports-container {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.transparency-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.transparency-list li {
+    background-color: #e3ffe7;
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid #4CAF50;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.transparency-list li:hover {
+    background-color: #d9e7ff;
+    border-color: #45a049;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.transparency-list li span {
+    font-size: 1rem;
+    color: #555;
+}
