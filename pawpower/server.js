@@ -7,7 +7,7 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
-// Middleware
+
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'pawpower', 'public'))); // Serve static files
 
@@ -39,16 +39,16 @@ app.use('/api/store', storeRoutes);
 
 
 
-const submitTipsRoutes = require('./pawpower/routes/submit-tips'); // Match the file name
+const submitTipsRoutes = require('./pawpower/routes/submit-tips'); 
 app.use('/api/tips', submitTipsRoutes);
 
 
-// Serve the frontend
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'pawpower', 'public', 'index.html'));
 });
 
-// Start the server
+
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
