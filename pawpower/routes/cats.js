@@ -22,6 +22,16 @@ router.post('/', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+// Bulk insert cats
+router.post('/bulk', async (req, res) => {
+    try {
+        // Use insertMany to add multiple cats at once
+        const newCats = await Cat.insertMany(req.body);
+        res.status(201).json(newCats); 
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 
 // Toggle favorite status
 router.put('/:id/favorite', async (req, res) => {
@@ -36,3 +46,13 @@ router.put('/:id/favorite', async (req, res) => {
 });
 
 module.exports = router;
+
+// GET all favorited cats
+router.get('/favorites', async (req, res) => {
+    try {
+        const favorites = await Cat.find({ favorited: true }); 
+        res.json(favorites); 
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
