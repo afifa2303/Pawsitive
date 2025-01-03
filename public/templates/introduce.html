@@ -1,0 +1,77 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet</title>
+  <link rel="stylesheet" href="/css/style.css"> <!-- Link to main style.css -->
+  <link rel="stylesheet" href="/css/formstyle.css"> <!-- Link to form-specific CSS -->
+</head>
+<body>
+  <div class="container">
+    <h1>Register Your Pet</h1>
+    <form id="petForm" enctype="multipart/form-data">
+      <label for="petImage">Upload Pet Image:</label>
+      <input type="file" id="petImage" name="petImage" required>
+      
+      <label for="name">Pet Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" required>
+
+      <label for="breed">Breed:</label>
+      <input type="text" id="breed" name="breed" required>
+
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender" required>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+
+      <label for="dietNutrition">Diet & Nutrition:</label>
+      <input type="text" id="dietNutrition" name="dietNutrition">
+
+      <label for="healthWellness">Health & Wellness:</label>
+      <input type="text" id="healthWellness" name="healthWellness">
+
+      <label for="uniqueCharacteristics">Unique Characteristics:</label>
+      <input type="text" id="uniqueCharacteristics" name="uniqueCharacteristics">
+
+      <label for="miscellaneous">Miscellaneous:</label>
+      <input type="text" id="miscellaneous" name="miscellaneous">
+
+      <button type="submit">Register Pet</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('petForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      const petData = Object.fromEntries(formData.entries());
+
+      try {
+        const response = await fetch('/api/pets/register', {
+          method: 'POST',
+          body: formData  // Automatically includes file data
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          alert(result.message);
+          // Optionally redirect or clear the form
+        } else {
+          const error = await response.json();
+          alert(`Error: ${error.message}`);
+        }
+      } catch (error) {
+        alert(`Error: ${error.message}`);
+      }
+    });
+  </script>
+</body>
+</html>
