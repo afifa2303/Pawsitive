@@ -1,5 +1,3 @@
-// models/Pet.js
-
 const mongoose = require('mongoose');
 
 const petSchema = new mongoose.Schema({
@@ -11,9 +9,11 @@ const petSchema = new mongoose.Schema({
   dietNutrition: { type: String },
   healthWellness: { type: String },
   uniqueCharacteristics: { type: String },
-  miscellaneous: { type: String }
+  miscellaneous: { type: String },
+  image: { type: String, required: true } // Added field for storing image path or URL
 });
 
 const Pet = mongoose.model('Pet', petSchema);
 
 module.exports = Pet;
+

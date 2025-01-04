@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Pet Profile</title>
+  <link rel="stylesheet" href="/css/petprofile.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Update Pet Profile</h1>
+    <form id="updatePetForm">
+      <label for="name">Pet Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" required>
+
+      <label for="breed">Breed:</label>
+      <input type="text" id="breed" name="breed" required>
+
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender" required>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+
+      <label for="dietNutrition">Diet & Nutrition:</label>
+      <input type="text" id="dietNutrition" name="dietNutrition">
+
+      <label for="healthWellness">Health & Wellness:</label>
+      <input type="text" id="healthWellness" name="healthWellness">
+
+      <label for="uniqueCharacteristics">Unique Characteristics:</label>
+      <input type="text" id="uniqueCharacteristics" name="uniqueCharacteristics">
+
+      <label for="miscellaneous">Miscellaneous:</label>
+      <textarea id="miscellaneous" name="miscellaneous"></textarea>
+
+      <label for="image">Upload New Image:</label>
+      <input type="file" id="image" name="image" accept="image/*">
+
+      <button type="submit">Update Profile</button>
+    </form>
+    <div id="responseMessage"></div>
+  </div>
+  <script src="/js/updatePet.js" defer></script>
+</body>
+</html>

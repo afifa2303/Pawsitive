@@ -12,6 +12,7 @@ const userSchema = new mongoose.Schema({
     required: true,
     minlength: 6, // Enforce minimum password length
   },
+  role: { type: String, enum: ['user', 'admin'], default: 'user' }
 });
 
 module.exports = mongoose.model('User', userSchema);

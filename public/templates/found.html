@@ -1,0 +1,29 @@
+<!-- found.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost & Found - Found Section</title>
+    <link rel="stylesheet" href="/css/styles.css"> <!-- Link to any additional CSS -->
+</head>
+<body>
+    <div class="container">
+        <h1>Report Found Pet</h1>
+        <form id="foundPostForm" enctype="multipart/form-data">
+            <label for="foundImage">Upload Pet Image:</label>
+            <input type="file" id="foundImage" name="foundImage" required>
+            
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" maxlength="100" required></textarea>
+            
+            <button type="submit">Report Found</button>
+        </form>
+        
+        <h2>All Found Pet Posts</h2>
+        <div id="foundPostsContainer"></div>
+    </div>
+
+    <script src="/js/foundPets.js"></script>
+</body>
+</html>

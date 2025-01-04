@@ -1,0 +1,29 @@
+<!-- lost.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost & Found - Lost Section</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link any additional CSS if needed -->
+</head>
+<body>
+    <div class="container">
+        <h1>Report Lost Pet</h1>
+        <form id="lostPostForm" enctype="multipart/form-data">
+            <label for="lostImage">Upload Pet Image:</label>
+            <input type="file" id="lostImage" name="lostImage" required>
+            
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" maxlength="100" required></textarea>
+            
+            <button type="submit">Report Lost</button>
+        </form>
+        
+        <h2>All Lost Pet Posts</h2>
+        <div id="lostPostsContainer"></div>
+    </div>
+
+    <script src="/js/lost.js"></script>
+</body>
+</html>

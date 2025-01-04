@@ -1,11 +1,11 @@
-
+<!-- home.html -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pet</title>
+  <title>Register Pet</title>
   <link rel="stylesheet" href="/css/style.css"> <!-- Link to main style.css -->
   <link rel="stylesheet" href="/css/formstyle.css"> <!-- Link to form-specific CSS -->
 </head>
@@ -19,7 +19,7 @@
       <label for="name">Pet Name:</label>
       <input type="text" id="name" name="name" required>
 
-      <label for="age">Age:</label>
+      <label for="age">Age in months:</label>
       <input type="number" id="age" name="age" required>
 
       <label for="breed">Breed:</label>
@@ -55,7 +55,7 @@
       const petData = Object.fromEntries(formData.entries());
 
       try {
-        const response = await fetch('/api/pets/register', {
+        const response = await fetch('/api/pets/introduce', {
           method: 'POST',
           body: formData  // Automatically includes file data
         });
@@ -63,7 +63,7 @@
         if (response.ok) {
           const result = await response.json();
           alert(result.message);
-          // Optionally redirect or clear the form
+          window.location.href = '/petprofile.html';
         } else {
           const error = await response.json();
           alert(`Error: ${error.message}`);
