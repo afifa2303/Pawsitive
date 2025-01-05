@@ -9,7 +9,6 @@ dotenv.config(); // Load environment variables
 connectDB(); // Connect to the database
 
 
-
 const app = express();
 
 // Middleware to parse JSON
@@ -35,7 +34,7 @@ app.use(express.static('public'));
 
 
 // Define the port to listen on, default to 3000 if not specified in environment
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 // Start the server
 app.listen(PORT, () => {
