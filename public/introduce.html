@@ -1,13 +1,11 @@
-<!-- home.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register Pet</title>
-  <link rel="stylesheet" href="/css/style.css"> <!-- Link to main style.css -->
-  <link rel="stylesheet" href="/css/formstyle.css"> <!-- Link to form-specific CSS -->
+  <link rel="stylesheet" href="/style.css"> 
+  <link rel="stylesheet" href="/formstyle.css"> 
 </head>
 <body>
   <div class="container">
@@ -57,7 +55,7 @@
       try {
         const response = await fetch('/api/pets/introduce', {
           method: 'POST',
-          body: formData  // Automatically includes file data
+          body: formData  
         });
 
         if (response.ok) {

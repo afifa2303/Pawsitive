@@ -43,8 +43,8 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
       const data = await response.json();
       if (response.ok) {
         alert('Login successful!');
-        // Redirect to home.html
-        window.location.href = 'templates/home.html';
+      
+        window.location.href = 'home.html';
       } else {
         alert(`Error: ${data.error}`);
       }

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Tips</title>
+    <link rel="stylesheet" href="tips.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Pet Care Tips</h1>
+            <p>Find helpful tips for your pets' health, behavior, and nutrition.</p>
+        </header>
+
+        <!-- Filter and Search Bar -->
+        <div class="controls">
+            <select id="filterSelect" onchange="filterTips()">
+                <option value="all">All</option>
+                <option value="health">Health Tips</option>
+                <option value="behavioral">Behavioral Tips</option>
+                <option value="nutritional">Nutritional Tips</option>
+            </select>
+            <input type="text" id="searchInput" placeholder="Search tips..." onkeyup="searchTips()" />
+        </div>
+
+        <!-- Tips Categories -->
+        <div id="tipsContainer">
+            <section class="tips-section" id="healthTipsSection">
+                <h2>Health Tips</h2>
+                <ul id="healthTips">
+                    <li>Your cat is good.</li>
+                    <li>Keep your pets hydrated.</li>
+                    <li>Regular vet check-ups are important.</li>
+                </ul>
+            </section>
+
+            <section class="tips-section" id="behavioralTipsSection">
+                <h2>Behavioral Tips</h2>
+                <ul id="behavioralTips">
+                    <li>Your rabbit is good.</li>
+                    <li>Train your pets with positive reinforcement.</li>
+                    <li>Understand your pets' body language.</li>
+                </ul>
+            </section>
+
+            <section class="tips-section" id="nutritionalTipsSection">
+                <h2>Nutritional Tips</h2>
+                <ul id="nutritionalTips">
+                    <li>Your dog is good.</li>
+                    <li>Provide a balanced diet for your pets.</li>
+                    <li>Avoid overfeeding to prevent obesity.</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <script src="tips.js"></script>
+</body>
+</html>

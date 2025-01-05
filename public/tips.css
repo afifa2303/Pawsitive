@@ -1,0 +1,133 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f9fb;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 10px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    border-radius: 12px 12px 0 0;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+header p {
+    font-size: 1.2rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Controls Section */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.controls select,
+.controls input {
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    width: 48%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.controls select:hover,
+.controls input:hover {
+    border-color: #2575fc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Tips Section */
+.tips-section {
+    margin-bottom: 30px;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+#healthTipsSection {
+    background: linear-gradient(135deg, #ff9a9e, #fecfef);
+    color: #333;
+}
+
+#behavioralTipsSection {
+    background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+    color: #333;
+}
+
+#nutritionalTipsSection {
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+    color: #333;
+}
+
+.tips-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    padding: 5px 10px;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.6);
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tips-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tips-section ul li {
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.tips-section ul li:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 1);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .controls {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .controls select,
+    .controls input {
+        width: 100%;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+}

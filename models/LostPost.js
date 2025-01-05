@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 
-const LostPostSchema = new mongoose.Schema({
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true,
-  },
+const lostPostSchema = new mongoose.Schema({
   description: {
     type: String,
     required: true,
@@ -21,4 +16,5 @@ const LostPostSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('LostPost', LostPostSchema);
+const LostPost = mongoose.model('LostPost', lostPostSchema);
+module.exports = LostPost;

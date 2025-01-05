@@ -1,64 +1,50 @@
-// routes/lost.js
 const express = require('express');
-const multer = require('multer');  // Import Multer
-const router = express.Router();
 const LostPost = require('../models/LostPost');
-const mongoose = require('mongoose');
 
-// Configure Multer for storing files
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'public/uploads/lost');  // Destination for lost pet images
-  },
-  filename: (req, file, cb) => {
-    const uniqueName = Date.now() + '-' + file.originalname;
-    cb(null, uniqueName);
-  }
-});
+const router = express.Router();
 
-const upload = multer({ storage: storage });
-
-// Route to create a new lost post
-router.post('/create', upload.single('lostImage'), async (req, res) => {
-    const { description } = req.body;
-  
-    try {
-      const newPost = new LostPost({
-        // Placeholder for `user` until authentication is added
-        user: 'anonymous', 
-        description,
-        image: req.file.filename, // Store the filename of the uploaded image
-      });
-  
-      await newPost.save(); // Save the post to the database
-      res.status(201).json({ message: 'Lost post created successfully', post: newPost });
-    } catch (error) {
-      res.status(400).json({ message: 'Error creating lost post', error });
-    }
-  });
-  
-
-// Route to fetch all lost posts
+// Route to fetch all lost posts or search by description and sort
 router.get('/', async (req, res) => {
+  const { q, sort } = req.query; // Get the search query and sort parameter
+
   try {
-    const posts = await LostPost.find().populate('user', 'username');  // Populate user data
+    let query = {};
+    if (q) {
+      query.description = { $regex: q, $options: 'i' }; // Case-insensitive search
+    }
+
+    let sortOption = {};
+    if (sort === 'newest') {
+      sortOption = { createdAt: -1 }; // Sort by newest first
+    } else if (sort === 'oldest') {
+      sortOption = { createdAt: 1 }; // Sort by oldest first
+    }
+
+    const posts = await LostPost.find(query).sort(sortOption);
     res.json(posts);
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch lost posts' });
   }
 });
 
-// Route to delete a lost post
-router.delete('/delete/:id', async (req, res) => {
-  const postId = req.params.id;
-  const userId = req.user.id;  // Assuming user is authenticated
+// Route to create a new lost post
+router.post('/create', async (req, res) => {
+  const { description } = req.body;
+
+  if (!description || !req.file) {
+    return res.status(400).json({ error: 'Description and image are required' });
+  }
 
   try {
-    const post = await LostPost.findOneAndDelete({ _id: postId, user: userId });
-    if (!post) return res.status(404).json({ error: 'Post not found or not authorized' });
-    res.status(200).json({ message: 'Lost post deleted successfully' });
+    const newPost = new LostPost({
+      description,
+      image: req.file.filename,
+    });
+
+    await newPost.save();
+    res.status(201).json({ message: 'Lost post created successfully', post: newPost });
   } catch (error) {
-    res.status(500).json({ error: 'Failed to delete post' });
+    res.status(500).json({ error: 'Failed to create lost post' });
   }
 });
 
