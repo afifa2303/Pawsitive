@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="shop.css">
+</head>
+<body>
+    <h1>Shop</h1>
+    <form id="product-form" class="product-form">
+        <h2>Add a Product</h2>
+        <input type="text" id="product-name" placeholder="Product Name" required>
+        <textarea id="product-description" placeholder="Product Description" required></textarea>
+        <input type="number" id="product-price" placeholder="Price" required>
+        <input type="file" id="product-image" required>
+        <button type="submit">Add Product</button>
+    </form>
+
+    <h2>Products</h2>
+    <div id="product-list" class="product-list"></div>
+
+    <div id="pay-now-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Calculate Total Price</h3>
+            <p id="selected-product-price"></p>
+            <label>
+                <input type="radio" name="delivery" value="60" checked> Delivery Inside Dhaka (+60 Tk)
+            </label>
+            <label>
+                <input type="radio" name="delivery" value="120"> Delivery Outside Dhaka (+120 Tk)
+            </label>
+            <p>Total Price: <span id="total-price">0</span> Tk</p>
+            <button id="confirm-payment">Confirm Payment</button>
+            <button id="close-modal">Close</button>
+        </div>
+    </div>
+
+    <script src="shop.js"></script>
+</body>
+</html>

@@ -10,6 +10,7 @@ const petsRouter = require('./routes/pets'); // Generic pets-related routes
 const lostRoutes = require('./routes/lost'); // Lost pets routes
 const foundRoutes = require('./routes/found');
 const tipRoutes = require('./routes/tip'); // Found pets routes
+const shopsRoutes = require('./routes/shops');
 
 
 // Load environment variables
@@ -43,6 +44,7 @@ app.use('/api/pets', petsRouter); // Pets-related routes
 app.use('/api/lost', lostRoutes); // Lost pets routes
 app.use('/api/found', foundRoutes); // Found pets routes
 app.use(tipRoutes);
+app.use('/api/shops', shopsRoutes);
 
 // Catch-all route for undefined API endpoints
 app.use((req, res, next) => {
