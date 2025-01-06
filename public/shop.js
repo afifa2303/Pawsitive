@@ -27,13 +27,17 @@ function loadProducts(filter = '', sort = '', search = '') {
                     <p>${product.description}</p>
                     <p>Category: ${product.category}</p>
                     <p>Price: ${product.price} Tk</p>
-                    <button onclick="openPayNow(${product.price})">Pay Now</button>
-                    <button>Add to Cart</button>
+                    <button onclick="openPayNow(${product.price})">Buy Now</button>
+                    <button onclick="handleAddToCart('${product._id}', '${product.name}', ${product.price})">Add to Cart</button>
                 `;
                 productList.appendChild(productCard);
             });
+        })
+        .catch(error => {
+            console.error('Error fetching products:', error);
         });
 }
+
 
 // Handle form submission to add a product
 productForm.addEventListener('submit', async (e) => {
@@ -76,7 +80,7 @@ closeModal.addEventListener('click', () => {
 
 // Confirm Payment (Add Logic Later)
 confirmPayment.addEventListener('click', () => {
-    alert('Payment confirmed!');
+    alert('SSL Commerz or onno kono payment option e niye jabe. Integrate kora hoini.');
     payNowModal.classList.add('hidden');
 });
 
@@ -85,5 +89,25 @@ filterCategory.addEventListener('change', () => loadProducts(filterCategory.valu
 sortPrice.addEventListener('change', () => loadProducts(filterCategory.value, sortPrice.value, searchProduct.value));
 searchProduct.addEventListener('input', () => loadProducts(filterCategory.value, sortPrice.value, searchProduct.value));
 
+function handleAddToCart(productId, productName, productPrice, productImage) {
+    // Get the current cart from localStorage or initialize it
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Add the product to the cart
+    cart.push({ id: productId, name: productName, price: productPrice, image: productImage });
+
+    // Save the updated cart back to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    alert(`${productName} has been added to your cart!`);
+}
+
+
+// Fetch and display products
+
+
+document.getElementById('view-cart-button').addEventListener('click', () => {
+    window.location.href = 'cart.html';
+});
 // Load products on page load
 loadProducts();
