@@ -14,21 +14,27 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-// Get all products
+// Get all products with filters, sorting, and search
 router.get('/products', async (req, res) => {
-    try {
-        const products = await Product.find();
-        res.json(products);
-    } catch (err) {
-        res.status(500).json({ message: err.message });
-    }
+    const { filter, sort, search } = req.query;
+    let query = {};
+
+    if (filter) query.category = filter;
+    if (search) query.$or = [{ name: { $regex: search, $options: 'i' } }, { description: { $regex: search, $options: 'i' } }];
+
+    let products = await Product.find(query);
+
+    if (sort === 'asc') products = products.sort((a, b) => a.price - b.price);
+    if (sort === 'desc') products = products.sort((a, b) => b.price - a.price);
+
+    res.json(products);
 });
 
 // Add a new product
 router.post('/products', upload.single('image'), async (req, res) => {
-    const { name, description, price } = req.body;
+    const { name, description, price, category } = req.body;
     const image = `/uploads/${req.file.filename}`;
-    const product = new Product({ name, description, price, image });
+    const product = new Product({ name, description, price, image, category });
 
     try {
         const newProduct = await product.save();

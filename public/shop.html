@@ -8,14 +8,37 @@
 </head>
 <body>
     <h1>Shop</h1>
+
     <form id="product-form" class="product-form">
         <h2>Add a Product</h2>
         <input type="text" id="product-name" placeholder="Product Name" required>
         <textarea id="product-description" placeholder="Product Description" required></textarea>
         <input type="number" id="product-price" placeholder="Price" required>
+        <select id="product-category" required>
+            <option value="">Select Category</option>
+            <option value="food">Food</option>
+            <option value="toy">Toy</option>
+            <option value="litter">Litter</option>
+        </select>
         <input type="file" id="product-image" required>
         <button type="submit">Add Product</button>
     </form>
+
+    <div class="filter-section">
+        <h2>Filter & Sort</h2>
+        <select id="filter-category">
+            <option value="">All Categories</option>
+            <option value="food">Food</option>
+            <option value="toy">Toy</option>
+            <option value="litter">Litter</option>
+        </select>
+        <select id="sort-price">
+            <option value="">Sort by Price</option>
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+        </select>
+        <input type="text" id="search-product" placeholder="Search Product">
+    </div>
 
     <h2>Products</h2>
     <div id="product-list" class="product-list"></div>
