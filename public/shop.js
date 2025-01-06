@@ -12,7 +12,7 @@ const searchProduct = document.getElementById('search-product');
 
 let currentProductPrice = 0;
 
-// Fetch and display products
+
 function loadProducts(filter = '', sort = '', search = '') {
     fetch(`/api/shops/products?filter=${filter}&sort=${sort}&search=${search}`)
         .then(response => response.json())
@@ -39,7 +39,7 @@ function loadProducts(filter = '', sort = '', search = '') {
 }
 
 
-// Handle form submission to add a product
+
 productForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -59,11 +59,11 @@ productForm.addEventListener('submit', async (e) => {
     productForm.reset();
 });
 
-// Open Pay Now modal
+
 function openPayNow(price) {
     currentProductPrice = price;
     selectedProductPrice.textContent = `Product Price: ${price} Tk`;
-    totalPrice.textContent = price + 60; // Default delivery inside Dhaka
+    totalPrice.textContent = price + 60; 
     payNowModal.classList.remove('hidden');
 
     document.querySelectorAll('input[name="delivery"]').forEach(input => {
@@ -73,41 +73,38 @@ function openPayNow(price) {
     });
 }
 
-// Close modal
+
 closeModal.addEventListener('click', () => {
     payNowModal.classList.add('hidden');
 });
 
-// Confirm Payment (Add Logic Later)
+
 confirmPayment.addEventListener('click', () => {
     alert('SSL Commerz or onno kono payment option e niye jabe. Integrate kora hoini.');
     payNowModal.classList.add('hidden');
 });
 
-// Filter, Sort, and Search
+
 filterCategory.addEventListener('change', () => loadProducts(filterCategory.value, sortPrice.value, searchProduct.value));
 sortPrice.addEventListener('change', () => loadProducts(filterCategory.value, sortPrice.value, searchProduct.value));
 searchProduct.addEventListener('input', () => loadProducts(filterCategory.value, sortPrice.value, searchProduct.value));
 
-function handleAddToCart(productId, productName, productPrice, productImage) {
-    // Get the current cart from localStorage or initialize it
+function handleAddToCart(productId, productName, productPrice, productImage) {    
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Add the product to the cart
+    
     cart.push({ id: productId, name: productName, price: productPrice, image: productImage });
 
-    // Save the updated cart back to localStorage
+    
     localStorage.setItem('cart', JSON.stringify(cart));
 
     alert(`${productName} has been added to your cart!`);
 }
 
 
-// Fetch and display products
-
 
 document.getElementById('view-cart-button').addEventListener('click', () => {
     window.location.href = 'cart.html';
 });
-// Load products on page load
+
 loadProducts();

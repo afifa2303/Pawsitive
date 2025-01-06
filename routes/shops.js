@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-// Get all products with filters, sorting, and search
+
 router.get('/products', async (req, res) => {
     const { filter, sort, search } = req.query;
     let query = {};
@@ -30,7 +30,7 @@ router.get('/products', async (req, res) => {
     res.json(products);
 });
 
-// Add a new product
+
 router.post('/products', upload.single('image'), async (req, res) => {
     const { name, description, price, category } = req.body;
     const image = `/uploads/${req.file.filename}`;
